@@ -22,7 +22,7 @@ const onCheckout = () => {
 function App() {
   return (
      <div className="kintil">
-       <h1 className="hint">Talent</h1> 
+       <h1 className="text">Talent</h1> 
        <h3 className="hint">by : lovinswmn</h3>
        <button className="container" onClick={onCheckout}> Klik ini</button>
       </div>
