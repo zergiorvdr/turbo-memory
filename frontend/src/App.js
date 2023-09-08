@@ -12,19 +12,19 @@ tg.BackButton.show();
  //Theme Params
 //tg.themeParams.setHeaderColor({color : "#FFFFFF"});
 //tg.themeParams.setBackgroundColor('#FF00FF');
+
 const onCheckout = () => {
-  tg.MainButton.setText('Pay :)')
+  tg.MainButton.setText('pay');
   tg.MainButton.show()
-  console.log('tombol diclick')
 }
+
 
 function App() {
   return (
      <div className="kintil">
        <h1 className="h1">Order Vcs</h1> 
        <h3 className="h3">Rekber by : Imam A'syari</h3>
-       <button className="button" onclick={onCheckout}> GAMBAR </button>
-       
+       <button className="button" onClick={onCheckout}> Gambar </button>
       </div>
   );
 }
