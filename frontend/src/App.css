@@ -4,16 +4,20 @@
 }
 
 .h1{ 
-  padding-top: 30px;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
   justify-items: center;
   color: white;
-  font-size: 10px;
+  font-size: 20px;
+  letter-spacing: 2px;
 
   
 }
 
+.kintil{
+  height: 100vh;
+}
 .h3{
   padding-top : 15px;
   color : White;
@@ -28,9 +32,6 @@
   background-color: black;
   color: White;
   border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
   width: 30px;
   height: 10px;
 }
