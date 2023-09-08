@@ -4,23 +4,28 @@ let tg = window.Telegram.WebApp;
 tg.expand();
  //Main Button
 tg.MainButton.textColor = "#FFFFFF";
-tg.MainButton.color = "#FFFFFF";
-tg.MainButton.setText("Order!");
-tg.MainButton.show();
+tg.MainButton.color = "#FF00FF";
  //Back Button
 tg.BackButton.isVisible = true
+tg.BackButton.color = "#FFFFFF"
 tg.BackButton.show();
  //Theme Params
 //tg.themeParams.setHeaderColor({color : "#FFFFFF"});
 //tg.themeParams.setBackgroundColor('#FF00FF');
-
+const onCheckout = () => {
+  tg.MainButton.setText('Pay :)')
+  tg.MainButton.show()
+  console.log('tombol diclick')
+}
 
 function App() {
   return (
      <div className="kintil">
        <h1 className="h1">Order Vcs</h1> 
        <h3 className="h3">Rekber by : Imam A'syari</h3>
-     </div>
+       <button className="button" onclick={onCheckout}> GAMBAR </button>
+       
+      </div>
   );
 }
 
