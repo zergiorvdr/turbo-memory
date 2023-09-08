@@ -1,13 +1,16 @@
 const { Telegraf } = require('telegraf');
-const bot = new Telegraf("6614590235:AAHg-R9LpZErwPF_I7MYUOvIsQzbKD9z3cQ");
+const bot = new Telegraf("6343422897:AAGKCbYrQZvhMKA1fWtbeHKZP8h6--9RAD0");
+
+
 
  bot.command('start', ctx => {
-   bot.telegram.sendMessage(ctx.chat.id, 'Welcome', {
+   const greating = ctx.from.username;
+   bot.telegram.sendMessage(ctx.chat.id,  `hi @${greating} silahkan klik tombil dibawah untuk melihat list cewe yang akan nemenin kamu aht!`, {
      reply_markup : {
        inline_keyboard : [
          [
            {
-             text : 'Order Here!', web_app : { url : 'https://turbo-memory.vercel.app/'}
+             text : 'List Talent', web_app : { url : 'https://turbo-memory.vercel.app/'}
            }]]
      }
    })

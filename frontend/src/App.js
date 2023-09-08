@@ -22,8 +22,8 @@ const onCheckout = () => {
 function App() {
   return (
      <div className="kintil">
-       <h1 className="h1">vcs order</h1> 
-       <h3 className="h3">by : lovinswmn</h3>
+       <h1 className="hint">Talent</h1> 
+       <h3 className="hint">by : lovinswmn</h3>
        <button className="container" onClick={onCheckout}> Klik ini</button>
       </div>
   );
