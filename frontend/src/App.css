@@ -1,0 +1,30 @@
+{
+  padding: 0;
+  margin: 0;
+}
+.kintil {
+  background-color: white;
+  height: 100vh;
+}
+
+.h1{ 
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  background-color: white;
+  color: black;
+  font-size: 35px;
+  letter-spacing: 5px;
+  font-weight: 5px;
+}
+
+.h3{
+  padding-top : 15px;
+  color : black;
+  font-size: 20px;
+  letter-spacing: 5px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
