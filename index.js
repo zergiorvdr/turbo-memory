@@ -7,7 +7,7 @@ const bot = new Telegraf("6614590235:AAHg-R9LpZErwPF_I7MYUOvIsQzbKD9z3cQ");
        inline_keyboard : [
          [
            {
-             text : 'Order Here!', web_app : { url : 'https://web-app-w7ev.vercel.app/'}
+             text : 'Order Here!', web_app : { url : 'https://turbo-memory.vercel.app/'}
            }]]
      }
    })

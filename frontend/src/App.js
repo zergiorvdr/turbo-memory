@@ -22,9 +22,9 @@ const onCheckout = () => {
 function App() {
   return (
      <div className="kintil">
-       <h1 className="h1">Order Vcs</h1> 
-       <h3 className="h3">Rekber by : Imam A'syari</h3>
-       <button className="container" onClick={onCheckout}> Gambar </button>
+       <h1 className="h1">TALENT VCS</h1> 
+       <h3 className="h3">by : lovinswmn</h3>
+       <button className="container" onClick={onCheckout}> Klik ini</button>
       </div>
   );
 }

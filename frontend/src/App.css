@@ -2,10 +2,6 @@
   padding: 0;
   margin: 0;
 }
-.kintil {
-  background-color: white;
-  height: 100vh;
-}
 
 .h1{ 
   padding-top: 30px;
@@ -14,15 +10,15 @@
   justify-items: center;
   background-color: white;
   color: black;
-  font-size: 35px;
+  font-size: 25px;
   letter-spacing: 5px;
-  font-weight: 5px;
+  font-weight: 2px;
 }
 
 .h3{
   padding-top : 15px;
   color : black;
-  font-size: 20px;
+  font-size: 5px;
   letter-spacing: 5px;
   display: flex;
   justify-content: center;
@@ -36,14 +32,6 @@
   width: 300px;
   height: 50px;
   margin-left: 30px;
-}
-body{
-	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 18px;
 }
 
 .hint{
