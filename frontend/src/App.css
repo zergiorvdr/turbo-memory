@@ -47,6 +47,7 @@ body{
   justify-items: center;
   justify-content: center;
   color : var(--tg-theme-text-color);
+  display: flex;
 }
 
 .hint{
@@ -54,7 +55,7 @@ body{
   justify-content: center;
   justify-items: center;
 	color: var(--tg-theme-hint-color);
-	font-size: 15px;
+	font-size: 10px;
 	letter-spacing: 2px;
 }
 
