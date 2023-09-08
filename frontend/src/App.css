@@ -9,8 +9,8 @@
   justify-content: center;
   justify-items: center;
   color: white;
-  font-size: 15px;
-  letter-spacing: 2px;
+  font-size: 10px;
+  
   
   
 }
@@ -18,8 +18,8 @@
 .h3{
   padding-top : 15px;
   color : White;
-  font-size: 5px;
-  letter-spacing: 5px;
+  font-size: 15px;
+  letter-spacing: 2px
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -29,9 +29,11 @@
   background-color: black;
   color: White;
   border-radius: 3px;
-  margin: 5px, 5px, 5px, 5px;
-  width: 50%;
-  height: 50px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 30px;
+  height: 10px;
 }
 
 .hint{
