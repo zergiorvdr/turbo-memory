@@ -9,16 +9,16 @@
   justify-content: center;
   justify-items: center;
   color: white;
-  font-size: 25px;
-  letter-spacing: 5px;
-  font-weight: 2px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  
   
 }
 
 .h3{
   padding-top : 15px;
   color : White;
-  font-size: 25px;
+  font-size: 5px;
   letter-spacing: 5px;
   display: flex;
   justify-content: center;
@@ -29,8 +29,8 @@
   background-color: black;
   color: White;
   border-radius: 3px;
-  margin-left: 10px;
-  width: 300px;
+  margin: 5px, 5px, 5px, 5px;
+  width: 50%;
   height: 50px;
 }
 
