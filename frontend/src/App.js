@@ -1,4 +1,12 @@
 import './App.css';
+import React from 'react';
+import Card from "./Components/Card";
+
+const { getData } = require("./Database/Database")
+const list = getData();
+
+
+
 let tg = window.Telegram.WebApp;
 
 tg.expand();
@@ -21,10 +29,11 @@ const onCheckout = () => {
 
 function App() {
   return (
-     <div className="kintil">
-       <h1 className="text">Order Talent</h1> 
+     <div onClick={onCheckout} className="kintil">
        <h3 className="hint">by : lovinswmn</h3>
-       <button className="container" onClick={onCheckout}> Klik ini</button>
+       {list.map((talent => {
+         return <Card talent={talent} key={talent.id}/> 
+       } ))}
       </div>
   );
 }

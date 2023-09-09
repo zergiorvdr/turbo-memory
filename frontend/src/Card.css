@@ -1,0 +1,24 @@
+{
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  box-sizing: border;
+  display: flex;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+
+.video{
+  width: 400px;
+  height: 500px;
+  box-sizing: border;
+}
+
+.card_title{
+  color: black;
+  font-size: 25px;
+  letter-spacing: 2px;
+ margin-left: 20px;
+}
