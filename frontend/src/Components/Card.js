@@ -11,7 +11,7 @@ function Card ({talent}) {
        {count}
       </span>
        <div className="card_video"> 
-         <video autoPlay className="video"> 
+         <video autoPlay type="video.mp4" className="video"> 
            <source src={video} />
          </video>
        </div>

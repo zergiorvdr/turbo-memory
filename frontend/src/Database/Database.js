@@ -1,6 +1,6 @@
-import video1 from "../Video/1.mp4";
-import video2 from "../Video/2.mp4";
-import video3 from "../Video/3.mp4";
+import video1 from '../videos/1.mp4';
+import video2 from '../videos/2.mp4';
+import video3 from '../videos/3.mp4';
 
 export function getData(){
   return [
