@@ -3,7 +3,7 @@ import '../Card.css';
 
 function Card ({talent}) {
   const [count, setCount] = useState(0);
-  const { title, video, price, id } = talent;
+  const { title, image, price, id } = talent;
   return (
     <div className="card">
       <span
@@ -11,9 +11,7 @@ function Card ({talent}) {
        {count}
       </span>
        <div className="card_video"> 
-         <video autoPlay className="video"> 
-           <source src={video} alt="error" type="video/mp4"/>
-         </video>
+         <img src={image} alt="image" className="img" /> 
        </div>
          <h4 className="card_title"> 
            {title} <span className="price">{price} </span>

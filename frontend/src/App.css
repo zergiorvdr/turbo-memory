@@ -5,6 +5,7 @@
 
 body{
   background: var(--tg-theme-bg-color);
+  margin-left: -10px ;
 }
   
 
