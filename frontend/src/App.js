@@ -30,7 +30,7 @@ const onCheckout = () => {
 function App() {
   return (
      <div onClick={onCheckout} className="kintil">
-       <h3 className="hint">by : lovinswmn</h3>
+       <marquee className="hint">by : lovinswmn</marquee>
        {list.map((talent => {
          return <Card talent={talent} key={talent.id}/> 
        } ))}
