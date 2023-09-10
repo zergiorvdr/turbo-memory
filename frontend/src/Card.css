@@ -14,13 +14,14 @@
   height: 140px;
   justify-content: center;
   display: flex;
+  border-radius: 30px;
 }
 
 .card_title{
   color: var(--tg-theme-text-color);
   font-size: 10px;
-  letter-spacing: 2px;
   text-align: center;
+  font-weight: bold;
 }
 
 .card_video{

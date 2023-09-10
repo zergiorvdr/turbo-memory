@@ -13,7 +13,7 @@ function Card ({talent}) {
        <div className="card_video"> 
          <img className="image"src={image} alt="image" /> 
          <h4 className="card_title"> 
-           {title} <span className="price">{price} </span>
+           {title} <span className="price"> • {price} </span>
          </h4>
        </div>
     </div>

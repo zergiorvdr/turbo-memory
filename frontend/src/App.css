@@ -35,8 +35,8 @@ body{
   justify-items: center;
 	color: var(--tg-theme-hint-color);
 	font-size: 10px;
+	padding-top: 20px;
 	letter-spacing: 2px;
-	padding: 0;
 	padding-bottom: 10px;
 }
 
