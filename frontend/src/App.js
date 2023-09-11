@@ -24,6 +24,9 @@ tg.expand();
 const onCheckout = () => {
   tg.MainButton.setText('ORDER HERE!');
   tg.MainButton.show()
+  tg.MainButton.onClick('mainButtonClicked', () => {
+     tg.HacktipFeedback.notificationOccured('success')
+  })
 }
 
 
