@@ -1,15 +1,17 @@
 import './App.css';
 import React from 'react';
 import Card from "./Components/Card";
-
 const { getData } = require("./Database/Database")
 const list = getData();
-
-
 
 let tg = window.Telegram.WebApp;
 
 tg.expand();
+const initData = window.Telegram.WebApp.initData || '';
+const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
+console.log(initData)
+console.log(initDataUnsafe)
+
  //Main Button
 //tg.MainButton.textColor = "#FFFFFF";
 //tg.MainButton.color = "#FF00FF";
@@ -20,12 +22,11 @@ tg.expand();
  //Theme Params
 //tg.themeParams.setHeaderColor({color : "#FFFFFF"});
 //tg.themeParams.setBackgroundColor('#FF00FF');
-
+ 
 const onCheckout = () => {
   tg.MainButton.setText('ORDER HERE!');
   tg.MainButton.show()
 }
-
 
 function App() {
   return (
@@ -39,3 +40,4 @@ function App() {
 }
 
 export default App;
+
