@@ -32,7 +32,7 @@ const bot = new Telegraf(token);
          [
            {
              text : 'List Talent',
-             web_app : { url : 'https://test.nwolfhub.org'}
+             web_app : { url : 'https://turbo-memory.vercel.app/'}
            }]],
          resize_keyboard: true
      }
