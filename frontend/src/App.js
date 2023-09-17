@@ -25,11 +25,28 @@ console.log(initDataUnsafe)
  
 const onCheckout = () => {
   tg.MainButton.setText('ORDER HERE!');
-  td.MainButton.onClick = function(callback) {
-      //call your server to send message here
+  tg.MainButton.onClick = function(callback) {
+    const chat_id = callback.message.chat.id;
+    const selectedId = getCookie('selected'); // Mendapatkan nilai dari cookie 'selected'
+
+    // Mengambil data talent yang sesuai dengan selectedId
+    const selectedTalent = list.find(talent => talent.id === selectedId);
+
+    // Membuat pesan yang akan dikirimkan
+    const messageToSend = `Pilihan Anda: ${selectedTalent.name}`;
+
+    // Mengirim pesan dan data menggunakan sendData
+    tg.sendData(chat_id, {
+      message: messageToSend,
+      selectedId: selectedId
+    });
   };
   tg.MainButton.show();
 }
+
+// ... (Kode Anda yang lain tetap seperti sebelumnya)
+
+
 function setSelected(id) {
     document.cookie="selected=" + id;
 }
