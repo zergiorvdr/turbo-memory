@@ -25,22 +25,9 @@ console.log(initDataUnsafe)
  
 const onCheckout = () => {
   tg.MainButton.setText('ORDER HERE!');
-  tg.MainButton.onClick = function(callback) {
-    const chat_id = callback.message.chat.id;
-    const selectedId = getCookie('selected'); // Mendapatkan nilai dari cookie 'selected'
-
-    // Mengambil data talent yang sesuai dengan selectedId
-    const selectedTalent = list.find(talent => talent.id === selectedId);
-
-    // Membuat pesan yang akan dikirimkan
-    const messageToSend = `Pilihan Anda: ${selectedTalent.name}`;
-
-    // Mengirim pesan dan data menggunakan sendData
-    tg.sendData(chat_id, {
-      message: messageToSend,
-      selectedId: selectedId
-    });
-  };
+  tg.MainButton.onClick(function(callback) {
+      tg.sendData("msgToSend=" + getCookie("selected"));
+  });
   tg.MainButton.show();
 }
 

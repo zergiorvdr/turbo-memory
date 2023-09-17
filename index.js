@@ -8,7 +8,7 @@ const port = 3000;
 const app = express();
 
 app.use(bodyParser.json());
-const token = "6584784094:AAGyHUp3XeVB5lOY0vk-RpahxJRI43RsdTU";
+const token = process.env.BOTTOKEN;
 
 //bot.telegram.setWebhook('https://da27-114-122-74-174.ngrok-free.app/bot' + token);
 
@@ -22,19 +22,19 @@ const token = "6584784094:AAGyHUp3XeVB5lOY0vk-RpahxJRI43RsdTU";
 const bot = new Telegraf(token);
 
 
-
  bot.command('start', ctx => {
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
    bot.telegram.sendMessage(ctx.chat.id,  `hi @${greating} silahkan klik tombil dibawah untuk melihat list cewe yang akan nemenin kamu aht!`, {
      reply_markup : {
-       inline_keyboard : [
+       keyboard : [
          [
            {
              text : 'List Talent',
-             web_app : { url : 'https://turbo-memory.vercel.app/'}
-           }]]
+             web_app : { url : 'https://test.nwolfhub.org'}
+           }]],
+         resize_keyboard: true
      }
    })
  })
@@ -49,14 +49,29 @@ const bot = new Telegraf(token);
            { text : 'order' }
          ]
          ], 
-      resize_keyboard : true , 
+      resize_keyboard : true,
+        one_time_keyboard: false,
      input_field_placeholder : "Pencet Tombol Di Bawah ya" 
   
     }
   })
 });
-
-
+bot.on("web_app_data", (ctx) => {
+    try {
+        if (ctx.message != null) {
+            if (ctx.message.web_app_data != null) {
+                console.log("Yep. Theres an update: " + ctx.message.web_app_data.data);
+                var data = ctx.message.web_app_data.data;
+                var from = ctx.message.from.id;
+                var selected = data.split("msgToSend=")[1];
+                if(selected==null) selected = "Wrong data";
+                bot.telegram.sendMessage(from, "You have selected: " + selected + ".");
+            }
+        }
+    } catch (e) {
+        console.log(e);
+    }
+});
 bot.on('text', (ctx) => {
   console.log(ctx)
   const user = ctx.from;
