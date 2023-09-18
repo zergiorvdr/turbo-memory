@@ -9,7 +9,6 @@ const app = express();
 
 app.use(bodyParser.json());
 const token = process.env.BOTTOKEN;
-
 //bot.telegram.setWebhook('https://da27-114-122-74-174.ngrok-free.app/bot' + token);
 
 //app.use(bot.webhookCallback('/bot' + token));
