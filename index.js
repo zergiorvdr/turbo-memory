@@ -25,11 +25,9 @@ const bot = new Telegraf(token);
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik List Tombol Talent dibawah keyboard untuk melihat list talent.`, {
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik List Tombol Talent dibawah keyboard untuk melihat list talent.`,
+   { 
      reply_markup : {
-       inline_keyboard : [[
-          {text: "SUPPORT CHANNEL", url : "https://t.me/talentbylovin"}
-         ]],
        keyboard : [
          [
            {
@@ -42,7 +40,6 @@ const bot = new Telegraf(token);
  })
 
 bot.on("web_app_data", (ctx) => {
-  ctx.deleteMessage()
     try {
         if (ctx.message != null) {
             if (ctx.message.web_app_data != null) {
@@ -70,7 +67,7 @@ bot.on("web_app_data", (ctx) => {
     } catch (e) {
         console.log(e);
     }
-});
+ctx.deleteMessage()});
 bot.action('DANA', ctx => {
   ctx.deleteMessage();
   bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor DANA dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {

@@ -37,8 +37,9 @@ tg.MainButton.showProgress(leaveActive=true)
 }
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
-
+tg.HapticFeedback.selectionChanged()
 tg.isClosingConfirmationEnabled=true
+
 
 function setSelected(id) {
     document.cookie="selected=" + id;
