@@ -38,24 +38,8 @@ const bot = new Telegraf(token);
    })
  })
 
-
- bot.command('order', ctx => {
-  bot.telegram.sendMessage(ctx.chat.id, 'Click Tombol di bawah untuk order! ', 
-  {
-    reply_markup : {
-       keyboard : [
-         [
-           { text : 'order' }
-         ]
-         ], 
-      resize_keyboard : true,
-        one_time_keyboard: false,
-     input_field_placeholder : "Pencet Tombol Di Bawah ya" 
-  
-    }
-  })
-});
 bot.on("web_app_data", (ctx) => {
+  ctx.deleteMessage()
     try {
         if (ctx.message != null) {
             if (ctx.message.web_app_data != null) {
@@ -64,30 +48,101 @@ bot.on("web_app_data", (ctx) => {
                 var from = ctx.message.from.id;
                 var selected = data.split("msgToSend=")[1];
                 if(selected==null) selected = "Wrong data";
-                bot.telegram.sendMessage(from, "You have selected: " + selected + ".");
+                bot.telegram.sendMessage(from, "Pilihan Talent Nomor : " + selected + ", Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini", {
+                  reply_markup : {
+                  inline_keyboard :  [
+                      [
+     { text: "DANA", callback_data : "DANA" },
+     { text: "OVO", callback_data : "OVO" },
+                        ],
+                        [
+     { text: "GOPAY" , callback_data: "GOPAY"},
+     { text: "SHOPEEPAY", callback_data: "SHOPEEPAY" }
+                      ],
+                      [
+     {text: "SUPPORT BY", url: "https://t.me/lvinsmwn"}                   
+                        ]
+                     ]
+                  }
+                });
             }
         }
     } catch (e) {
         console.log(e);
     }
 });
-bot.on('text', (ctx) => {
-  console.log(ctx)
-  const user = ctx.from;
-  console.log(user)
-  if (user) {
-    const userId = user.id;
-    const firstName = user.first_name;
-    const isBot = user.is_bot;
-    const languageCode = user.language_code;
-console.log(`ID Pengguna: ${userId}`);
-    console.log(`Nama Depan: ${firstName}`);
-    console.log(`Bot: ${isBot}`);
-    console.log(`Kode Bahasa: ${languageCode}`);
-  } else {
-    console.log("Data WebAppUser tidak tersedia dalam pesan.");
-  }
-});
+bot.action('DANA', ctx => {
+  ctx.deleteMessage();
+  bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor DANA dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {
+    reply_markup : {
+      inline_keyboard : [
+        [
+          { text: "Kembali", callback_data : "KEMBALI" }
+          ]
+        ]
+    }
+  })
+})
+
+bot.action('OVO', ctx => {
+  ctx.deleteMessage();
+  bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor OVO dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {
+    reply_markup : {
+      inline_keyboard : [
+        [
+          { text: "Kembali", callback_data : "KEMBALI" }
+          ]
+        ]
+    }
+  })
+})
+
+bot.action('GOPAY', ctx => {
+  ctx.deleteMessage();
+  bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor GOPAY dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {
+    reply_markup : {
+      inline_keyboard : [
+        [
+          { text: "Kembali", callback_data : "KEMBALI" }
+          ]
+        ]
+    }
+  })
+})
+
+bot.action('SHOPEEPAY', ctx => {
+  ctx.deleteMessage();
+  bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor SHOPEEPAY dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {
+    reply_markup : {
+      inline_keyboard : [
+        [
+          { text: "Kembali", callback_data : "KEMBALI" }
+          ]
+        ]
+    }
+  })
+})
+
+bot.action('KEMBALI', ctx => {
+ctx.deleteMessage();
+bot.telegram.sendMessage(ctx.chat.id, " Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini", {
+                  reply_markup : {
+                  inline_keyboard :  [
+                      [
+     { text: "DANA", callback_data : "DANA" },
+     { text: "OVO", callback_data : "OVO" },
+                        ],
+                        [
+     { text: "GOPAY" , callback_data: "GOPAY"},
+     { text: "SHOPEEPAY", callback_data: "SHOPEEPAY" }
+                      ],
+                      [
+     {text: "SUPPORT BY", url: "https://t.me/lvinsmwn"}                   
+                        ]
+                     ]
+                  }
+                });
+})
 
 
 //app.listen(port)
