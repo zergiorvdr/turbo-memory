@@ -7,6 +7,7 @@ const list = getData();
 let tg = window.Telegram.WebApp;
 
 tg.expand();
+tg.enableClosingConfirmation() 
 const initData = window.Telegram.WebApp.initData || '';
 const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
 console.log(initData)
@@ -25,9 +26,7 @@ console.log(initDataUnsafe)
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
   tg.MainButton.onClick(function(callback) {
-    tg.showAlert("Talend Dipilih Nomor : " + getCookie("selected"), function(callback){
-            tg.sendData("msgToSend=" + getCookie("selected"));
-    });
+      tg.sendData("msgToSend=" + getCookie("selected"));
    });
   tg.MainButton.isProgressVisible=true
   tg.MainButton.showProgress(leaveActive=true)
@@ -35,8 +34,7 @@ const onCheckout = () => {
   };
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
-tg.HapticFeedback.selectionChanged()
-tg.enableClosingConfirmation() 
+
 function setSelected(id) {
     document.cookie="selected=" + id;
 }
