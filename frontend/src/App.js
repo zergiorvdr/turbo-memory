@@ -36,7 +36,7 @@ const onCheckout = () => {
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
 tg.HapticFeedback.selectionChanged()
-
+tg.disableClosingConfirmation()
 
 function setSelected(id) {
     document.cookie="selected=" + id;
