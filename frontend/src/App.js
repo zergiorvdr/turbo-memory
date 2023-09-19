@@ -33,7 +33,6 @@ const onCheckout = () => {
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
 
-tg.openTelegramLink("https://t.me/lvinsmwn")
 tg.isClosingConfirmationEnabled=true
 
 function setSelected(id) {
