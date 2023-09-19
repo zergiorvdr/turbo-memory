@@ -25,8 +25,11 @@ const bot = new Telegraf(token);
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `hi @${greating} silahkan klik tombil dibawah untuk melihat list cewe yang akan nemenin kamu aht!`, {
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik List Tombol Talent dibawah keyboard untuk melihat list talent.`, {
      reply_markup : {
+       inline_keyboard : [[
+          {text: "SUPPORT CHANNEL", url : "https://t.me/talentbylovin"}
+         ]],
        keyboard : [
          [
            {
@@ -58,10 +61,7 @@ bot.on("web_app_data", (ctx) => {
                         [
      { text: "GOPAY" , callback_data: "GOPAY"},
      { text: "SHOPEEPAY", callback_data: "SHOPEEPAY" }
-                      ],
-                      [
-     {text: "SUPPORT BY", url: "https://t.me/lvinsmwn"}                   
-                        ]
+                      ]
                      ]
                   }
                 });
@@ -135,10 +135,7 @@ bot.telegram.sendMessage(ctx.chat.id, " Silahkan lakukan pembayaran dengan metod
                         [
      { text: "GOPAY" , callback_data: "GOPAY"},
      { text: "SHOPEEPAY", callback_data: "SHOPEEPAY" }
-                      ],
-                      [
-     {text: "SUPPORT BY", url: "https://t.me/lvinsmwn"}                   
-                        ]
+                      ]
                      ]
                   }
                 });

@@ -26,12 +26,13 @@ console.log(initDataUnsafe)
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
   tg.MainButton.onClick(function(callback) {
-   tg.showConfirm("Anda memilih talent nomor :" + getCookie("selected") + ". \n Jika benar klik OK! untuk melanjutkan transaksi", function(callback) {
+   tg.showConfirm("Anda memilih talent nomor :" + getCookie("selected") + " Jika benar klik OK! untuk melanjutkan transaksi", function(callback) {
       tg.sendData("msgToSend=" + getCookie("selected"));
    }
    )
 
   });
+tg.MainButton.showProgress(leaveActive=true)
   tg.MainButton.show();
 }
 
