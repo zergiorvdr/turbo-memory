@@ -25,8 +25,10 @@ console.log(initDataUnsafe)
 //tg.themeParams.setBackgroundColor('#FF00FF');
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
-  tg.MainButton.onClick(function(callback) {
+  tg.MainButton.onClick(function(callback) { 
+    tg.showAlert("Pilihan anda adalah talent Nomor : "  + getCookie("selected"), function(callback){
       tg.sendData("msgToSend=" + getCookie("selected"));
+    })
    });
   tg.MainButton.show();
   };
