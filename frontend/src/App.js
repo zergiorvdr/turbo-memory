@@ -25,7 +25,7 @@ console.log(initDataUnsafe)
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
   tg.MainButton.onClick(function(callback) {
-    tgmshowAlert("Talend Dipilih Nomor : " + getCookie("selected"), function(callback){
+    tg.showAlert("Talend Dipilih Nomor : " + getCookie("selected"), function(callback){
             tg.sendData("msgToSend=" + getCookie("selected"));
     });
    });
