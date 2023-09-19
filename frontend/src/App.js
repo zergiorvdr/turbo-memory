@@ -28,8 +28,6 @@ const onCheckout = () => {
   tg.MainButton.onClick(function(callback) {
       tg.sendData("msgToSend=" + getCookie("selected"));
    });
-  tg.MainButton.isProgressVisible=true
-  tg.MainButton.showProgress(leaveActive=true)
   tg.MainButton.show();
   };
 

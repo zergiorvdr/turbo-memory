@@ -25,7 +25,7 @@ const bot = new Telegraf(token);
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik List Tombol Talent dibawah keyboard untuk melihat list talent.`,
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik Tombol List Talent dibawah keyboard untuk melihat list talent.`,
    { 
      reply_markup : {
        keyboard : [
