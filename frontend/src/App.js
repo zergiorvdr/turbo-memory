@@ -26,7 +26,7 @@ console.log(initDataUnsafe)
 const onCheckout = () => {
   tg.MainButton.setText('ORDER HERE!');
   tg.MainButton.onClick(function(callback) {
-   tg.showConfirm("KONFIRMASI", function(callback) {
+   tg.showConfirm("Anda Memilih Talent Nomor :" + getCookie("selected") + "Jika benar klik OK! untuk melanjutkan transaksi", function(callback) {
       tg.sendData("msgToSend=" + getCookie("selected"));
    }
    )
