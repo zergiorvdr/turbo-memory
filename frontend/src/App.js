@@ -33,6 +33,8 @@ const onCheckout = () => {
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
 
+tg.openTelegramLink("https://t.me/lvinsmwn")
+tg.isClosingConfirmationEnabled=true
 
 function setSelected(id) {
     document.cookie="selected=" + id;
@@ -51,7 +53,7 @@ function App() {
     document.cookie="selected=-1";
   return (
      <div onClick={onCheckout} className="kintil">
-       <marquee className="hint">developer: IMAM ASYARI</marquee>
+       <marquee className="hint">developer: : @lvinsmwn</marquee>
        {list.map((talent => {
            return <div onClick={() => {setSelected(talent.id)}}> <Card talent={talent} key={talent.id}/> </div>
        } ))}
