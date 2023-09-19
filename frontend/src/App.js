@@ -22,21 +22,21 @@ console.log(initDataUnsafe)
  //Theme Params
 //tg.themeParams.setHeaderColor({color : "#FFFFFF"});
 //tg.themeParams.setBackgroundColor('#FF00FF');
-tg.disableClosingConfirmation() 
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
   tg.MainButton.onClick(function(callback) {
-      tg.sendData("msgToSend=" + getCookie("selected"));
+    showAlert("Talend Dipilih Nomor : " + getCookie("selected"), function(callback){
+            tg.sendData("msgToSend=" + getCookie("selected"));
+    });
    });
   tg.MainButton.isProgressVisible=true
   tg.MainButton.showProgress(leaveActive=true)
   tg.MainButton.show();
   };
-  
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
 tg.HapticFeedback.selectionChanged()
-
+tg.enableClosingConfirmation() 
 function setSelected(id) {
     document.cookie="selected=" + id;
 }
