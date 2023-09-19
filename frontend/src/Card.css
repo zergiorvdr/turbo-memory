@@ -3,16 +3,14 @@
   margin: 0;
 }
 .card {
-  border: 1px solid;
-  border-radius: 8px;
   transition: transform 0.2s;
   margin: 12px;
   pading: 12px;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card.active {
@@ -26,7 +24,7 @@
 .image {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .card_title {
