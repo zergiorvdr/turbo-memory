@@ -36,7 +36,6 @@ const onCheckout = () => {
 
 // ... (Kode Anda yang lain tetap seperti sebelumnya)
 tg.HapticFeedback.selectionChanged()
-tg.isClosingConfirmationEnabled=true
 
 
 function setSelected(id) {
