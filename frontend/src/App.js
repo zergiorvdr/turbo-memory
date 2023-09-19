@@ -50,14 +50,19 @@ function getCookie(name) {
 }
 function App() {
     document.cookie="selected=-1";
-  return (
-     <div onClick={onCheckout} className="kintil">
-       <marquee className="hint">developer: : @lvinsmwn</marquee>
-       {list.map((talent => {
-           return <div onClick={() => {setSelected(talent.id)}}> <Card talent={talent} key={talent.id}/> </div>
-       } ))}
-      </div>
-  );
+return (
+  <div onClick={onCheckout} className="kintil card-container">
+    <marquee className="hint">developer: : @lvinsmwn</marquee>
+    {list.map((talent) => {
+      return (
+        <div className="card-wrapper" onClick={() => {setSelected(talent.id)}} key={talent.id}>
+          <Card talent={talent} />
+        </div>
+      )
+    })}
+  </div>
+);
+
 }
 
 export default App;

@@ -3,11 +3,11 @@
   margin: 0;
 }
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid;
   border-radius: 8px;
-  padding: 16px;
-  margin: 16px;
   transition: transform 0.2s;
+  margin: 12px;
+  pading: 12px;
 }
 
 .card:hover {
@@ -16,7 +16,7 @@
 }
 
 .card.active {
-  background-color: #f8f8f8;
+ background-color: var(--tg-theme-bg-color);
 }
 
 .card_video {
@@ -30,16 +30,7 @@
 }
 
 .card_title {
-  margin-top: 8px;
+  margin-top: 4px;
+  color: var(--tg-theme-text-color);
 }
 
-.card__badge {
-  display: inline-block;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 12px;
-}
-
-.card__badge--hidden {
-  display: none;
-}
