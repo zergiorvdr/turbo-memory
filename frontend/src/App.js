@@ -26,7 +26,7 @@ console.log(initDataUnsafe)
 const onCheckout = () => {
   tg.MainButton.setText('Bayar');
   tg.MainButton.onClick(function(callback) { 
-    tg.showAlert("Pilihan anda adalah talent Nomor : "  + getCookie("selected"), function(callback){
+    tg.showAlert("Pilihan anda adalah"  + getCookie("selected"), function(callback){
       tg.sendData("msgToSend=" + getCookie("selected"));
     })
    });
@@ -52,10 +52,10 @@ function App() {
     document.cookie="selected=-1";
 return (
   <div onClick={onCheckout} className="kintil card-container">
-    <marquee className="hint">developer: : @lvinsmwn</marquee>
+    <marquee className="hint">developer: @lvinsmwn</marquee>
     {list.map((talent) => {
       return (
-        <div className="card-wrapper" onClick={() => {setSelected(talent.id)}} key={talent.id}>
+        <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
           <Card talent={talent} />
         </div>
       )
