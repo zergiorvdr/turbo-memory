@@ -48,7 +48,7 @@ bot.on("web_app_data", (ctx) => {
                 var from = ctx.message.from.id;
                 var selected = data.split("msgToSend=")[1];
                 if(selected==null) selected = "Wrong data";
-                bot.telegram.sendMessage(from, "Pilihan Talent Nomor : " + selected + ", Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini", {
+                bot.telegram.sendMessage(from, "Pilihan Talent " + selected + ", Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini", {
                   reply_markup : {
                   inline_keyboard :  [
                       [
