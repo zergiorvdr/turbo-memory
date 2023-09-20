@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import Card from "./Components/Card";
+import Channel from "./Components/Channel";
 const { getData } = require("./Database/Database")
 const list = getData();
 
@@ -57,6 +58,7 @@ return (
       return (
         <div className="card-wrapper" onClick={() => {setSelected(talent.id)}} key={talent.id}>
           <Card talent={talent} />
+          <Channel talent={talent.url} />
         </div>
       )
     })}
