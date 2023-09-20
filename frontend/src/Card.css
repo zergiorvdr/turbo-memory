@@ -6,6 +6,7 @@
   transition: transform 0.2s;
   margin: 12px;
   pading: 12px;
+  border-radius: 10px;
 }
 
 .card:hover {
@@ -14,7 +15,6 @@
 }
 
 .card.active {
- background-color: var(--tg-theme-bg-color);
 }
 
 .card_video {
@@ -24,11 +24,12 @@
 .image {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 11px;
 }
 
 .card_title {
-  margin-top: 4px;
   color: var(--tg-theme-text-color);
+  position: relative;
+  margin-top: -3px;
 }
 
