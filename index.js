@@ -66,8 +66,7 @@ bot.on("web_app_data", (ctx) => {
         }
     } catch (e) {
         console.log(e);
-    }
-ctx.deleteMessage()});
+    }});
 bot.action('DANA', ctx => {
   ctx.deleteMessage();
   bot.telegram.sendMessage(ctx.chat.id, "Silahkan melakukan transfer ke Nomor DANA dibawah ini \n- 085220601095 \n\n Tolong kirimkan bukti transfer ", {

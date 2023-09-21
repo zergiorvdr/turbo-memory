@@ -29,9 +29,10 @@
   background-color: #ef8a1f;
   width: 50%;
   height: 30px;
-  border-radius: 8px;
+  border: 2px solid #ef8a1f;
   color:white;
   font-family: Arial;
+  border-radius: 8px ;
 }
 
 .button_kurang {
@@ -39,16 +40,18 @@
   font-weight: 10px;
   width: 35px;
   margin-right: 5px;
-  border-radius: 10px ;
+  border: 2px solid #ffce39 ;
   color: white;
   height: 30px;
+  border-radius: 10px;
 }
 
 .button_tambah {
   background-color: #ef8a1f;
   font-weight: 10px;
   width: 35px;
-  border-radius: 10px ;
+  border: 2px solid #ef8a1f;
   color: white;
   height: 30px;
+  border-radius: 10px;
 }
