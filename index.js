@@ -25,7 +25,15 @@ const bot = new Telegraf(token);
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik Tombol List Order dibawah untuk melakukan pembelian seperti \n-USERBOT\n-HEROKU\n-NOKOS\n-VPS\n\n Dan masih banyak lainya`,
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Tekan *'LIST ORDER'* di bawah ini untuk melihat daftar produk yang tersedia.\n
+*•NOKOS ID 1:*
+_Adalah akun Telegram dengan ID awalan 1 yang dapat digunakan sebagai dasar untuk membuat userbot._\n
+*•VPS LINUX/UBUNTU:*
+_Server virtual pribadi untuk mempublikasikan bot Telegram, memberi kontrol penuh._\n
+*•Userbot:*
+_Bot khusus untuk Telegram yang beroperasi di bawah akun pengguna. Digunakan untuk tugas otomatis dalam percakapan grup atau pribadi di Telegram._\n
+*•Heroku Premium:*
+_Platform cloud untuk mempublikasikan aplikasi, termasuk bot Telegram. Versi Premium meningkatkan performa._`, {parse_mode: "Markdown"},
    { 
      reply_markup : {
        keyboard : [
@@ -48,7 +56,8 @@ bot.on("web_app_data", (ctx) => {
                 var from = ctx.message.from.id;
                 var selected = data.split("msgToSend=")[1];
                 if(selected==null) selected = "Wrong data";
-                bot.telegram.sendMessage(from, "Pilihan Talent " + selected + ", Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini", {
+                bot.telegram.sendMessage(from, `Pilihan ${selected}™, Silahkan lakukan pembayaran dengan metode pemabayaran yang tersedia dibawah ini`, 
+                {
                   reply_markup : {
                   inline_keyboard :  [
                       [
@@ -73,7 +82,7 @@ bot.action('DANA', ctx => {
     reply_markup : {
       inline_keyboard : [
         [
-          { text: "Kembali", callback_data : "KEMBALI" }
+          { text: "🔙Kembali", callback_data : "KEMBALI" }
           ]
         ]
     }
@@ -86,7 +95,7 @@ bot.action('OVO', ctx => {
     reply_markup : {
       inline_keyboard : [
         [
-          { text: "Kembali", callback_data : "KEMBALI" }
+          { text: "🔙Kembali", callback_data : "KEMBALI" }
           ]
         ]
     }
@@ -99,7 +108,7 @@ bot.action('GOPAY', ctx => {
     reply_markup : {
       inline_keyboard : [
         [
-          { text: "Kembali", callback_data : "KEMBALI" }
+          { text: "🔙Kembali", callback_data : "KEMBALI" }
           ]
         ]
     }
@@ -112,7 +121,7 @@ bot.action('SHOPEEPAY', ctx => {
     reply_markup : {
       inline_keyboard : [
         [
-          { text: "Kembali", callback_data : "KEMBALI" }
+          { text: "🔙Kembali", callback_data : "KEMBALI" }
           ]
         ]
     }

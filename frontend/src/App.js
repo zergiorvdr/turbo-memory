@@ -1,5 +1,4 @@
-import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from "./Components/Card";
 const { getData } = require("./Database/Database")
 const list = getData();
@@ -8,37 +7,24 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 tg.enableClosingConfirmation() 
-const initData = window.Telegram.WebApp.initData || '';
-const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
-console.log(initData)
-console.log(initDataUnsafe)
 
- //Main Button
-//tg.MainButton.textColor = "#FFFFFF";
-//tg.MainButton.color = "#FF00FF";
- //Back Button
-//tg.BackButton.isVisible = true
-//tg.BackButton.color = "#FFFFFF"
-//tg.BackButton.show();
- //Theme Params
-//tg.themeParams.setHeaderColor({color : "#FFFFFF"});
-//tg.themeParams.setBackgroundColor('#FF00FF');
-const onCheckout = () => {
-  tg.MainButton.setText('Bayar');
-  tg.MainButton.onClick(function(callback) { 
-    tg.showAlert("Pilihan anda adalah "  + getCookie("selected"), function(callback){
-      tg.sendData("msgToSend=" + getCookie("selected"));
-    })
-   });
-  tg.MainButton.show();
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const onCheckout = () => {
+    tg.MainButton.setText('Bayar');
+    tg.MainButton.onClick(function(callback) { 
+      tg.showAlert("Pilihan anda adalah "  + getCookie("selected"), function(callback){
+        tg.sendData("msgToSend=" + getCookie("selected"));
+      })
+    });
+    tg.MainButton.show();
   };
 
-// ... (Kode Anda yang lain tetap seperti sebelumnya)
-
-function setSelected(id) {
+  function setSelected(id) {
     document.cookie="selected=" + id;
-}
-function getCookie(name) {
+  }
+  function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -47,22 +33,23 @@ function getCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
-}
-function App() {
-    document.cookie="selected=-1";
-return (
-  <div onClick={onCheckout} className="kintil card-container">
-    {list.map((talent) => {
-      return (
-        <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
-          <Card talent={talent} />
-        </div>
-      )
-    })}
-  </div>
-);
+  }
 
+  useEffect(() => {
+    document.cookie="selected=-1";
+  }, []);
+
+  return (
+    <div className="card-container">
+      {list.map((talent) => {
+        return (
+          <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
+            <Card talent={talent} onCheckout={onCheckout} />
+          </div>
+        )
+      })}
+    </div>
+  );
 }
 
 export default App;
-
