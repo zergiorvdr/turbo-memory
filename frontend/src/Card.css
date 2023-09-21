@@ -26,7 +26,7 @@
 }
 
 .ADD {
-  background-color: orange;
+  background-color: #ef8a1f;
   width: 50%;
   height: 30px;
   border-radius: 8px;
@@ -35,9 +35,9 @@
 }
 
 .button_kurang {
-  background-color: red;
+  background-color: #ffce39;
   font-weight: 10px;
-  width: 50px;
+  width: 35px;
   margin-right: 5px;
   border-radius: 10px ;
   color: white;
@@ -45,9 +45,9 @@
 }
 
 .button_tambah {
-  background-color: orange;
+  background-color: #ef8a1f;
   font-weight: 10px;
-  width: 50px;
+  width: 35px;
   border-radius: 10px ;
   color: white;
   height: 30px;

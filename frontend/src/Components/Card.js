@@ -55,7 +55,7 @@ function Card ({talent}) {
           </div>
         ) : (
           <button className="ADD" onClick={handleAddButtonClick}>
-            ADD
+           ADD
           </button>
         )}
       </div>

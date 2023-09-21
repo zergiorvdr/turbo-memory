@@ -52,7 +52,6 @@ function App() {
     document.cookie="selected=-1";
 return (
   <div onClick={onCheckout} className="kintil card-container">
-    <marquee className="hint">developer: @lvinsmwn</marquee>
     {list.map((talent) => {
       return (
         <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
