@@ -25,13 +25,13 @@ const bot = new Telegraf(token);
    const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik Tombol List Talent dibawah keyboard untuk melihat list talent.`,
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Klik Tombol List Order dibawah untuk melakukan pembelian seperti \n-USERBOT\n-HEROKU\n-NOKOS\n-VPS\n\n Dan masih banyak lainya`,
    { 
      reply_markup : {
        keyboard : [
          [
            {
-             text : 'List Talent',
+             text : 'List Order',
              web_app : { url : 'https://turbo-memory.vercel.app/'}
            }]],
          resize_keyboard: true

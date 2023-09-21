@@ -3,19 +3,11 @@
   margin: 0;
 }
 .card {
-  transition: transform 0.2s;
   margin: 12px;
   pading: 12px;
   border-radius: 10px;
 }
 
-.card:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.card.active {
-}
 
 .card_video {
   text-align: center;
@@ -23,7 +15,7 @@
 
 .image {
   max-width: 100%;
-  height: auto;
+  height: 100px;
   border-radius: 11px;
 }
 
@@ -33,3 +25,30 @@
   margin-top: -3px;
 }
 
+.ADD {
+  background-color: orange;
+  width: 50%;
+  height: 30px;
+  border-radius: 8px;
+  color:white;
+  font-family: Arial;
+}
+
+.button_kurang {
+  background-color: red;
+  font-weight: 10px;
+  width: 50px;
+  margin-right: 5px;
+  border-radius: 10px ;
+  color: white;
+  height: 30px;
+}
+
+.button_tambah {
+  background-color: orange;
+  font-weight: 10px;
+  width: 50px;
+  border-radius: 10px ;
+  color: white;
+  height: 30px;
+}
