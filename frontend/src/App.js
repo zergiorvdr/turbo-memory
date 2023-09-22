@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+
+import './App.css';
+import React from 'react';
 import Card from "./Components/Card";
 const { getData } = require("./Database/Database")
 const list = getData();
@@ -7,30 +9,37 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 tg.enableClosingConfirmation() 
+const initData = window.Telegram.WebApp.initData || '';
+const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
+console.log(initData)
+console.log(initDataUnsafe)
 
-const App = () => {
-  const [lastCount, setLastCount] = useState(null);
-
-  const updateCount = (newCount) => {
-    setLastCount(newCount);
+ //Main Button
+//tg.MainButton.textColor = "#FFFFFF";
+//tg.MainButton.color = "#FF00FF";
+ //Back Button
+//tg.BackButton.isVisible = true
+//tg.BackButton.color = "#FFFFFF"
+//tg.BackButton.show();
+ //Theme Params
+//tg.themeParams.setHeaderColor({color : "#FFFFFF"});
+//tg.themeParams.setBackgroundColor('#FF00FF');
+const onCheckout = () => {
+  tg.MainButton.setText('Bayar');
+  tg.MainButton.onClick(function(callback) { 
+    tg.showAlert("Pilihan anda adalah "  + getCookie("selected"), function(callback){
+      tg.sendData("msgToSend=" + getCookie("selected"));
+    })
+   });
+  tg.MainButton.show();
   };
 
-  const onCheckout = (count) => {
-    const currentCount = count !== null ? count : 0;
-    tg.MainButton.setText('Bayar');
-    tg.MainButton.onClick(function(callback) { 
-      tg.showAlert(`Pilihan anda adalah ${getCookie("selected")} dengan jumlah ${currentCount}`, function(callback){
-        tg.sendData(`msgToSend=${getCookie("selected")}&count=${currentCount}`);
-      })
-    });
-    tg.MainButton.show();
-  };
+// ... (Kode Anda yang lain tetap seperti sebelumnya)
 
-  function setSelected(id) {
+function setSelected(id) {
     document.cookie="selected=" + id;
-  }
-
-  function getCookie(name) {
+}
+function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -39,26 +48,21 @@ const App = () => {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
-  }
-
-  useEffect(() => {
+}
+function App() {
     document.cookie="selected=-1";
-  }, []);
+return (
+  <div onClick={onCheckout} className="card-container">
+    {list.map((talent) => {
+      return (
+        <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
+          <Card talent={talent} />
+        </div>
+      )
+    })}
+  </div>
+);
 
-  return (
-    <div className="card-container">
-      {list.map((talent) => {
-        return (
-          <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
-            <Card talent={talent} onCheckout={onCheckout} updateCount={updateCount} />
-          </div>
-        )
-      })}
-      {lastCount !== null && (
-        <p>Nilai Count Terakhir: {lastCount}</p>
-      )}
-    </div>
-  );
 }
 
 export default App;
