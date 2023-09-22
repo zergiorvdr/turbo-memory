@@ -6,6 +6,7 @@ function Card ({ talent, onCheckout, updateCount }) {
 
   const [count, setCount] = useState(0);
   const [showQuantityButtons, setShowQuantityButtons] = useState(false);
+  const [countAnimation, setCountAnimation] = useState(false);
 
   const handleAddButtonClick = () => {
     setShowQuantityButtons(true);
@@ -13,8 +14,6 @@ function Card ({ talent, onCheckout, updateCount }) {
     updateCount(1);
     onCheckout(1); 
   }
-  
-  const [countAnimation, setCountAnimation] = useState(false);
 
   const handleDecreaseClick = () => {
     setCount(prev => {
@@ -40,7 +39,7 @@ function Card ({ talent, onCheckout, updateCount }) {
       <div className="card_video" style={{position: 'relative'}}>
         <img className="image" src={image} alt="image" />
         {count > 0 && (
-          <p 
+          <div
             className={`count ${countAnimation ? 'count-animation' : ''}`}
             style={{
               position: 'absolute',
@@ -56,7 +55,7 @@ function Card ({ talent, onCheckout, updateCount }) {
               animation: `${countAnimation ? 'bounce' : 'none'} 0.5s`,
             }}>
             {count}
-          </p>
+          </div>
         )}
         <p className="card_title"> 
           {title}
@@ -64,6 +63,7 @@ function Card ({ talent, onCheckout, updateCount }) {
         {showQuantityButtons ? (
           <div className="kuantitas">
             <button onClick={handleDecreaseClick} className="button_kurang">-</button>
+            <span>{count}</span>
             <button onClick={handleIncreaseClick} className="button_tambah">+</button> 
           </div>
         ) : null}

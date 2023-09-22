@@ -15,13 +15,12 @@ const App = () => {
     setLastCount(newCount);
   };
 
-  const onCheckout = () => {
-    const currentCount = lastCount !== null ? lastCount : 0; // Menggunakan nilai terakhir dari count
+  const onCheckout = (count) => {
+    const currentCount = count !== null ? count : 0;
     tg.MainButton.setText('Bayar');
     tg.MainButton.onClick(function(callback) { 
       tg.showAlert(`Pilihan anda adalah ${getCookie("selected")} dengan jumlah ${currentCount}`, function(callback){
         tg.sendData(`msgToSend=${getCookie("selected")}&count=${currentCount}`);
-        setLastCount(null); // Reset nilai lastCount
       })
     });
     tg.MainButton.show();
