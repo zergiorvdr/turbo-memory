@@ -1,4 +1,5 @@
 const https = require('https');
+const axios = require('axios')
 const TelegramBotAPI = require("telegram-bot-api");
 const bodyParser = require('body-parser')
 const fs = require('fs');
@@ -27,13 +28,17 @@ const bot = new Telegraf(token);
    const greating = ctx.from.username;
    bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Tekan *'LIST ORDER'* di bawah ini untuk melihat daftar produk yang tersedia.\n
 *•NOKOS ID 1:*
+
 _Adalah akun Telegram dengan ID awalan 1 yang dapat digunakan sebagai dasar untuk membuat userbot._\n
 *•VPS LINUX/UBUNTU:*
+
 _Server virtual pribadi untuk mempublikasikan bot Telegram, memberi kontrol penuh._\n
 *•Userbot:*
+
 _Bot khusus untuk Telegram yang beroperasi di bawah akun pengguna. Digunakan untuk tugas otomatis dalam percakapan grup atau pribadi di Telegram._\n
 *•Heroku Premium:*
-_Platform cloud untuk mempublikasikan aplikasi, termasuk bot Telegram. Versi Premium meningkatkan performa._`, {parse_mode: "Markdown"},
+
+_Platform cloud untuk mempublikasikan aplikasi, termasuk bot Telegram. Versi Premium meningkatkan performa._`, {parse_mode: "Markdown" },
    { 
      reply_markup : {
        keyboard : [
@@ -42,7 +47,8 @@ _Platform cloud untuk mempublikasikan aplikasi, termasuk bot Telegram. Versi Pre
              text : 'List Order',
              web_app : { url : 'https://turbo-memory.vercel.app/'}
            }]],
-         resize_keyboard: true
+         resize_keyboard: true,
+         is_persistent: true,
      }
    })
  })
@@ -145,7 +151,6 @@ bot.telegram.sendMessage(ctx.chat.id, " Silahkan lakukan pembayaran dengan metod
                   }
                 });
 })
-
 
 //app.listen(port)
 bot.launch()

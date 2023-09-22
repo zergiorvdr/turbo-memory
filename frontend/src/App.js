@@ -9,13 +9,19 @@ tg.expand();
 tg.enableClosingConfirmation() 
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [lastCount, setLastCount] = useState(null);
+
+  const updateCount = (newCount) => {
+    setLastCount(newCount);
+  };
 
   const onCheckout = () => {
+    const currentCount = lastCount !== null ? lastCount : 0; // Menggunakan nilai terakhir dari count
     tg.MainButton.setText('Bayar');
     tg.MainButton.onClick(function(callback) { 
-      tg.showAlert("Pilihan anda adalah "  + getCookie("selected"), function(callback){
-        tg.sendData("msgToSend=" + getCookie("selected"));
+      tg.showAlert(`Pilihan anda adalah ${getCookie("selected")} dengan jumlah ${currentCount}`, function(callback){
+        tg.sendData(`msgToSend=${getCookie("selected")}&count=${currentCount}`);
+        setLastCount(null); // Reset nilai lastCount
       })
     });
     tg.MainButton.show();
@@ -24,6 +30,7 @@ const App = () => {
   function setSelected(id) {
     document.cookie="selected=" + id;
   }
+
   function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -44,7 +51,7 @@ const App = () => {
       {list.map((talent) => {
         return (
           <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
-            <Card talent={talent} onCheckout={onCheckout} />
+            <Card talent={talent} onCheckout={onCheckout} updateCount={updateCount} />
           </div>
         )
       })}
