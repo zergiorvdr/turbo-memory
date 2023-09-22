@@ -1,5 +1,5 @@
 import '../Card.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Card ({ talent, onCheckout, updateCount }) {
   const { title, image } = talent;
@@ -12,15 +12,13 @@ function Card ({ talent, onCheckout, updateCount }) {
     setShowQuantityButtons(true);
     setCount(1);
     updateCount(1);
-    onCheckout(1); 
   }
 
   const handleDecreaseClick = () => {
     setCount(prev => {
       setCountAnimation(true);
       const newCount = Math.max(prev - 1, 0);
-      updateCount(newCount); // Memperbarui nilai count di komponen Card.js
-      onCheckout(newCount); // Mengirimkan nilai terakhir dari Card.js ke onCheckout
+      updateCount(newCount);
       return newCount;
     });
   }
@@ -29,11 +27,14 @@ function Card ({ talent, onCheckout, updateCount }) {
     setCount(prev => {
       setCountAnimation(true);
       const newCount = prev + 1;
-      updateCount(newCount); // Memperbarui nilai count di komponen Card.js
-      onCheckout(newCount); // Mengirimkan nilai terakhir dari Card.js ke onCheckout
+      updateCount(newCount);
       return newCount;
     });
   }
+
+  useEffect(() => {
+    onCheckout(count);
+  }, [count]);
 
   return ( 
     <div className="card">

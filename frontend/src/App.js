@@ -54,6 +54,9 @@ const App = () => {
           </div>
         )
       })}
+      {lastCount !== null && (
+        <p>Nilai Count Terakhir: {lastCount}</p>
+      )}
     </div>
   );
 }
