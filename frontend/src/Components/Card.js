@@ -17,21 +17,22 @@ function Card ({ talent, onCheckout, updateCount }) {
 
   const handleDecreaseClick = () => {
     setCount(prev => {
-      if (prev === 1) {
-        setShowQuantityButtons(false);
-      }
       setCountAnimation(true);
-      return Math.max(prev - 1, 0);
+      const newCount = Math.max(prev - 1, 0);
+      updateCount(newCount); // Memperbarui nilai count di komponen Card.js
+      onCheckout(newCount); // Mengirimkan nilai terakhir dari Card.js ke onCheckout
+      return newCount;
     });
-    updateCount(count - 1);
   }
 
   const handleIncreaseClick = () => {
     setCount(prev => {
       setCountAnimation(true);
-      return prev + 1;
+      const newCount = prev + 1;
+      updateCount(newCount); // Memperbarui nilai count di komponen Card.js
+      onCheckout(newCount); // Mengirimkan nilai terakhir dari Card.js ke onCheckout
+      return newCount;
     });
-    updateCount(count + 1);
   }
 
   return ( 
