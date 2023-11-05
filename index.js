@@ -1,14 +1,14 @@
 const https = require('https');
 const axios = require('axios')
 const TelegramBotAPI = require("telegram-bot-api");
-const bodyParser = require('body-parser')
+//const bodyParser = require('body-parser')
 const fs = require('fs');
 const { Telegraf } = require('telegraf');
-const express = require('express');
-const port = 3000;
-const app = express();
+//const express = require('express');
+//const port = 3000;
+//const app = express();
 
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 const token = process.env.BOTTOKEN;
 //bot.telegram.setWebhook('https://da27-114-122-74-174.ngrok-free.app/bot' + token);
 
@@ -22,24 +22,10 @@ const token = process.env.BOTTOKEN;
 const bot = new Telegraf(token);
 
 
- bot.command('start', ctx => {
-   const user = ctx.from;
+ bot.command('start', ctx => {   const user = ctx.from;
    console.log(user)
    const greating = ctx.from.username;
-   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Tekan *'LIST ORDER'* di bawah ini untuk melihat daftar produk yang tersedia.\n
-*•NOKOS ID 1:*
-
-_Adalah akun Telegram dengan ID awalan 1 yang dapat digunakan sebagai dasar untuk membuat userbot._\n
-*•VPS LINUX/UBUNTU:*
-
-_Server virtual pribadi untuk mempublikasikan bot Telegram, memberi kontrol penuh._\n
-*•Userbot:*
-
-_Bot khusus untuk Telegram yang beroperasi di bawah akun pengguna. Digunakan untuk tugas otomatis dalam percakapan grup atau pribadi di Telegram._\n
-*•Heroku Premium:*
-
-_Platform cloud untuk mempublikasikan aplikasi, termasuk bot Telegram. Versi Premium meningkatkan performa._`, {parse_mode: "Markdown" },
-   { 
+   bot.telegram.sendMessage(ctx.chat.id,  `Hi @${greating}, Tekan *'LIST ORDER'* di bawah ini untuk melihat daftar produk yang tersedia`,{
      reply_markup : {
        keyboard : [
          [

@@ -1,14 +1,48 @@
-import image1 from '../images/1.png';
-import image2 from '../images/2.png';
-import image3 from '../images/3.png';
-import image4 from '../images/4.png';
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
 
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-export function getData(){
-  return [
- { title: "Heroku • $3", image: image1, id: 1 },
- { title: "Userbot • $1", image: image2, id: 2},
- { title: "VPS • $3", image: image3, id: 3 },
- { title: "Nokos ID 1 • $1", image: image4, id: 4}
- ];
-}
+app.use(cors()); // Mengizinkan permintaan dari domain berbeda
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '12345',
+  database: 'products'
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL database');
+});
+
+app.get('/api/data', (req, res) => {
+  db.query('SELECT * FROM data', (error, results) => {
+    if (error) {
+      res.status(500).send(error);
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.get('/api/data/:id', (req, res) => {
+  const id = req.params.id;
+  db.query('SELECT * FROM data WHERE id = ?', [id], (error, results) => {
+    if (error) {
+      res.status(500).send(error);
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

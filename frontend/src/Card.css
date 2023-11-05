@@ -60,7 +60,7 @@ body {
 /* .card styling */
 .card {
   margin: 12px;
-  padding: 12px; /* Perhatikan penulisan 'padding' yang benar */
+  padding: 2px; /* Perhatikan penulisan 'padding' yang benar */
   border-radius: 10px;
 }
 

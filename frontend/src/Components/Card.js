@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import '../Card.css';
+import React, { useState } from 'react';
+import '../Card.css'
+//import image1 from '../images/viu.jpg'
 
-function Card ({talent}) {
-  const { title, image, id } = talent;
-
+function Card({ title, price, image }) {
   const [count, setCount] = useState(0);
   const [showQuantityButtons, setShowQuantityButtons] = useState(false);
 
@@ -25,42 +24,46 @@ function Card ({talent}) {
     setCount(prev => prev + 1);
   }
 
-  return ( 
+  return (
     <div className="card">
-      <div className="card_video" style={{position: 'relative'}}>
-        <img className="image" src={image} alt="image" />
+      <div className="card_video" style={{ position: 'relative' }}>
+        <img className="image" src={image} alt={title} />
         {count > 0 && (
-          <p 
+          <p
             style={{
               position: 'absolute',
-              fontSize: '10px',
+              fontSize: '12px',
               top: 0,
               right: 0,
-              width: '10px',
+              width: '12px',
               background: 'orange',
               padding: '4px',
               borderRadius: '9999px',
-              color: 'white'
+              color: 'white',
+              marginRight: '2px'
             }}>
             {count}
           </p>
         )}
-        <p className="card_title"> 
+        <p className="card_title">
           {title}
+        </p>
+        <p className="card_price">
+          Price: Rp.{price}
         </p>
         {showQuantityButtons ? (
           <div className="kuantitas">
             <button onClick={handleDecreaseClick} className="button_kurang">-</button>
-            <button onClick={handleIncreaseClick} className="button_tambah">+</button> 
+            <button onClick={handleIncreaseClick} className="button_tambah">+</button>
           </div>
         ) : (
           <button className="ADD" onClick={handleAddButtonClick}>
-           ADD
+            ADD
           </button>
         )}
       </div>
     </div>
-  ) 
+  )
 }
 
 export default Card;

@@ -2,9 +2,8 @@
 import './App.css';
 import React from 'react';
 import Card from "./Components/Card";
-const { getData } = require("./Database/Database")
-const list = getData();
-
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 let tg = window.Telegram.WebApp;
 
 tg.expand();
@@ -50,18 +49,28 @@ function getCookie(name) {
     return null;
 }
 function App() {
+  
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/data')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
     document.cookie="selected=-1";
 return (
-  <div onClick={onCheckout} className="card-container">
-    {list.map((talent) => {
-      return (
-        <div className="card-wrapper" onClick={() => {setSelected(talent.title)}} key={talent.id}>
-          <Card talent={talent} />
+    <div className="card-container">
+      {data.map((item, index) => (
+        <div className="card-wrapper" key={index}>
+          <Card title={item.title} image={item.image} price={item.price} id={item.id} /> {/* Mengisi data ke Card */}
         </div>
-      )
-    })}
-  </div>
-);
+      ))}
+    </div>
+  );
 
 }
 
