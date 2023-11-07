@@ -25,10 +25,10 @@ body {
 
 /* .ADD styling */
 .ADD {
-  background-color: #ef8a1f;
+  background-color: #383838;
   width: 50%;
   height: 30px;
-  border: 2px solid #ef8a1f;
+  border: 2px solid #383838;
   color: white;
   font-family: Arial;
   border-radius: 8px;
@@ -36,11 +36,11 @@ body {
 
 /* .button_kurang styling */
 .button_kurang {
-  background-color: #ffce39;
+  background-color: #15171a;
   font-weight: 10px;
   width: 35px;
   margin-right: 5px;
-  border: 2px solid #ffce39;
+  border: 2px solid #15171a;
   color: white;
   height: 30px;
   border-radius: 10px;
@@ -48,10 +48,10 @@ body {
 
 /* .button_tambah styling */
 .button_tambah {
-  background-color: #ef8a1f;
+  background-color: #383838;
   font-weight: 10px;
   width: 35px;
-  border: 2px solid #ef8a1f;
+  border: 2px solid #383838;
   color: white;
   height: 30px;
   border-radius: 10px;

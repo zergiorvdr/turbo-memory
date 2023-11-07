@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+
 {
   padding: 0;
   margin: 0;
@@ -7,7 +9,16 @@ body{
   background: var(--tg-theme-bg-color);
 }
   
-
+.Brand{
+  display: flex;
+  letter-spacing: 3px;
+  justify-items: center;
+  justify-content: center;
+  color: #383838;
+  font-family: 'Cinzel', serif;
+  font-size : 20px;
+  border-bottom : 2px solid #383838;
+}
 .kintil{
   height: 100vh;
   font-size: 25px;

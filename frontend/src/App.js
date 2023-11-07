@@ -53,7 +53,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/data')
+    axios.get('http://localhost:3001/products')
       .then(response => {
         setData(response.data);
       })
@@ -63,12 +63,14 @@ function App() {
   }, []);
     document.cookie="selected=-1";
 return (
+  <div><h3 className="Brand">Lopin Parfume Store </h3>
     <div className="card-container">
       {data.map((item, index) => (
         <div className="card-wrapper" key={index}>
-          <Card title={item.title} image={item.image} price={item.price} id={item.id} /> {/* Mengisi data ke Card */}
+          <Card title={item.name} image={item.url} id={item.id} /> {/* Mengisi data ke Card */}
         </div>
       ))}
+    </div>
     </div>
   );
 

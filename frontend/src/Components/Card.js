@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Card.css'
 //import image1 from '../images/viu.jpg'
 
-function Card({ title, price, image }) {
+function Card({ title, image }) {
   const [count, setCount] = useState(0);
   const [showQuantityButtons, setShowQuantityButtons] = useState(false);
 
@@ -36,7 +36,7 @@ function Card({ title, price, image }) {
               top: 0,
               right: 0,
               width: '12px',
-              background: 'orange',
+              background: '#383838' ,
               padding: '4px',
               borderRadius: '9999px',
               color: 'white',
@@ -47,9 +47,6 @@ function Card({ title, price, image }) {
         )}
         <p className="card_title">
           {title}
-        </p>
-        <p className="card_price">
-          Price: Rp.{price}
         </p>
         {showQuantityButtons ? (
           <div className="kuantitas">
